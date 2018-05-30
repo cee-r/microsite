@@ -85,7 +85,11 @@ header {
   }
 
   .top {
-    padding: 1em 0;
+    padding: 1em;
+
+    @media #{$break-small} {
+      padding: 1em 0;
+    }
   }
 
   .utilities {
@@ -354,40 +358,79 @@ header {
 
 // BANNER
 
+
 .carousel-inner > .carousel-item > a > img,
 .carousel-inner > .carousel-item > img {
-  display: block;
   width: 100%;
-  height: auto;
+  height: 500px;
+  object-fit: cover;
+
+  @media #{$break-lmedium} {
+    height: auto;
+  }
+
 }
 
 #hero-banner {
 
   .carousel-caption {
-    width: 30%;
-    //background: $color-primary;
+    width: 100%;
     background: rgba(	83, 71, 65, 0.9);
     padding: 2em;
-    right:1.5%;
+    right:0;
     left: auto;
-    margin-bottom: 2em;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+
+    @media #{$break-lmedium} {
+      width: 30%;
+      position: absolute;
+      right:0;
+      left: auto;
+      bottom: 0;
+      margin: 0;
+      height: 100%;
+    }
+
+    @media #{$break-lmedium} {
+      right:1.5%;
+      left: auto;
+      margin-bottom: 3.5em;
+      height: auto;
+    }
 
     h1 {
       color: $color-mid;
-      font-size: 4em;
+      font-size: 2.5em;
       line-height: 1;
+
+      @media #{$break-lmedium} {
+        font-size: 3em;
+      }
+      @media #{$break-large} {
+        font-size: 4em;
+      }
     }
 
     p {
       font-weight: 300;
-      line-height: 1.5em;
+      line-height: 1;
+
+      @media #{$break-lmedium} {
+        line-height: 1.5em;
+      }
     }
   }
 
   .carousel-indicators {
     margin-right: auto;
-    margin-left: 1%;
+    margin-left: 3%;
     justify-content: left;
+
+    @media #{$break-lmedium} {
+      margin-left: 1%;
+    }
   }
 
   .carousel-nav {
