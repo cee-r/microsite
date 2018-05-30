@@ -216,6 +216,22 @@ header {
         color: $color-secondary;
       }
 
+      &.close {
+        margin: 1em;
+        padding: 0;
+        border: 0;
+        float: none;
+        text-align: right;
+        color: $color-light;
+        font-weight: 400;
+        font-size: 1.2em;
+        text-shadow: none;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+
       @media #{$break-lmedium} {
         display: none;
       }
@@ -226,14 +242,51 @@ header {
       position: fixed;
       left: -300px;
       top: 0;
-      background: $color-secondary;
+      background: $color-dark;
       height: 100vh;
       width: 300px;
       overflow: hidden;
       transition: left .3s ease-in-out;
+      @include box-shadow($left: 2px, $top: 2px, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,0.3), $inset: false);
 
       &.active-menu {
         left: 0;
+
+      }
+
+      &.mobile {
+        ul {
+          margin: 0;
+          margin-left: 1em;
+          padding: 0;
+          list-style: none;
+
+          li:first-child a {
+            border-top: 1px solid #000;
+            border-top-color: rgba(#000, .3);
+          }
+
+          a {
+            color: $color-light;
+            display: block;
+            padding: 1em 2em;
+            border-bottom: 1px solid #000;
+            border-bottom-color: rgba(#000, .3);
+            text-decoration: none;
+
+
+            &.active, &:hover {
+              background: $color-secondary;
+            }
+          }
+
+          ul {
+            //display: none;
+            margin-left: 0;
+            background: rgba(#000, .3);
+
+          }
+        }
       }
 
       @media #{$break-lmedium} {
@@ -244,6 +297,7 @@ header {
         width: auto;
         height: auto;
         overflow: visible;
+        box-shadow: none;
 
 
         ul {
@@ -254,6 +308,8 @@ header {
             a {
               padding-bottom: 0.5em;
               font-weight: 400;
+              //color: $color-primary;
+              border-bottom: 0;
 
               &:after {
                 content: '';

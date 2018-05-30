@@ -28,13 +28,27 @@ $(document).ready(function(){
 	});
 
 
+	$( window ).resize(function() {
+		var windowSize = $( window ).width();
+
+		if (windowSize < 1024){
+			$("#primary-nav").addClass("mobile");
+			$("#primary-nav .has-child ul").hide();
+		} else {
+			$("#primary-nav").removeClass("mobile");
+			$("#primary-nav .has-child ul").show();
+		}
+	}).trigger('resize');
+
 
 	$(".mobile-menu").click(function() {
-    //e.preventDefault();
     $("#primary-nav").toggleClass("active-menu");
-
 	});
 
 
+	$("#primary-nav .has-child a").click(function() {
+		$(this).toggleClass("active");
+		$(this).siblings().slideToggle();
+	});
 
 });
