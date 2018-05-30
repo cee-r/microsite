@@ -27,4 +27,14 @@ $(document).ready(function(){
 	  }
 	});
 
+
+
+	$(".mobile-menu").click(function() {
+    //e.preventDefault();
+    $("#primary-nav").toggleClass("active-menu");
+
+	});
+
+
+
 });
