@@ -621,7 +621,9 @@ header {
       &:last-child {margin-bottom:2em;}
 
       &:nth-child(even) .read-more {
-        float: right;
+        @media #{$break-pmedium} {
+          float: right;
+        }
       }
 
       .feature-description {
@@ -633,7 +635,8 @@ header {
 
         img {
           width: 100%;
-          height: auto;
+          height: 100%;
+          object-fit: cover;
         }
       }
     }
@@ -646,15 +649,33 @@ footer.footer {
     padding: 2em 0;
     color: $color-light;
 
-    .col, .container {padding:0;}
+    .col-md, .container {
 
-    .col:nth-child(even) {
-      text-align: right;
+      @media #{$break-pmedium} {
+        padding:0;
+      }
     }
 
-    p {margin: 0;}
+    .col-md {
+      text-align: center;
 
-    a {color:$color-mid;}
+      @media #{$break-pmedium} {
+        text-align: left;
+
+        &.credits {
+          text-align: right;
+        }
+      }
+
+      p {
+        margin: .5em;
+        @media #{$break-pmedium} {
+          margin: 0;
+        }
+      }
+
+      a {color:$color-mid;}
+    }
 }
 
 // SUBPAGE
