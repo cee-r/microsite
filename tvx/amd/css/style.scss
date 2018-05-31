@@ -42,7 +42,12 @@ $box-shadow-inset: inset 0 2px 3px 0 rgba(0,0,0,0.3), inset 0 -2px 3px 0 rgba(0,
 // DEFAULT TEXT
 
 body {font-size: 14px; font-weight: 300;}
-h1, h2.heading {font-family: $font-display; font-size: 4em; margin-bottom: 1rem; color: $color-accent;}
+h1, h2.heading {font-family: $font-display; font-size: 3.5em; color: $color-accent; line-height: 1;
+  @media #{$break-pmedium} {
+    font-size: 4em;
+    line-height: 1.5;
+  }
+}
 h2, h3, h4, h5, h6 {font-family: $font-base; margin-bottom: 1rem; color: $color-accent;}
 p, span, a, div, li {font-family: $font-base; line-height: 1; font-weight: 300;}
 .content-area, .features { p, span, a, div, li {line-height: 1.5; font-weight: 300;} }
@@ -683,7 +688,7 @@ footer.footer {
 .subpage {
 
   .callouts {
-    height: 150px;
+    //height: 150px;
 
     h1 {color:#fff;}
   }
