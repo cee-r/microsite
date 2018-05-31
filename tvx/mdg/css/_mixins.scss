@@ -1,0 +1,97 @@
+// VAR
+
+$zindex-backdrop:          -2000;
+$zindex-dropdown-backdrop:  990 !default;
+$zindex-navbar:            1000 !default;
+$zindex-dropdown:          1000 !default;
+$zindex-fixed:             1030 !default;
+$zindex-sticky:            1030 !default;
+$zindex-modal-backdrop:    1040 !default;
+$zindex-modal:             1050 !default;
+$zindex-popover:           1060 !default;
+$zindex-tooltip:           1070 !default;
+
+// BREAK POINTS
+
+@mixin break-large {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin break-small {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// Browser Specific
+
+@mixin if-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin if-moz {
+  @-moz-document url-prefix(){
+    @content;
+  }
+}
+
+// MIXINS
+
+@mixin border-radius($radius: 5px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+@mixin box-shadow($left, $top, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $left $top $blur $spread $color;
+    -moz-box-shadow:inset $left $top $blur $spread $color;
+    box-shadow:inset $left $top $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $left $top $blur $spread $color;
+    -moz-box-shadow: $left $top $blur $spread $color;
+    box-shadow: $left $top $blur $spread $color;
+  }
+}
+
+@mixin box-shadow-multi($multishadow...) {
+    -webkit-box-shadow: $multishadow;
+    -moz-box-shadow: $multishadow;
+    box-shadow: $multishadow;
+}
+
+
+@mixin opacity($opacity: 1) {
+  -webkit-transition: $opacity;
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+@mixin clip-path($polygon) {
+  -webkit-clip-path: $polygon;
+  clip-path: $polygon;
+}

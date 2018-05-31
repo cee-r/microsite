@@ -1,0 +1,77 @@
+nav {
+	z-index: $zindex-navbar;
+
+	#primary-nav {
+		position: relative;
+		vertical-align: middle;
+		line-height: 1;
+		height: 50px;
+		z-index: $zindex-navbar;
+
+		&:hover, a:active, a:focus {
+			outline: 0;
+		}
+
+		// level 1
+		ul {
+			list-style: none;
+			margin: 0 auto;
+			padding: 0;
+			text-align: center;
+
+			li {
+				display: inline-block;
+				position: relative;
+				float: none;
+				margin: 0;
+				padding: 0;
+
+				&:hover ul { // dropdown
+					visibility: visible;
+					ul {visibility: hidden;}
+				}
+
+				a {
+					display: block;
+					text-decoration: none;
+					font-family: $font-base;
+					font-size: 16px;
+					text-transform: uppercase;
+					line-height: 1.15;
+					padding: 1em;
+					color: $color-dark;
+
+					&:hover, &.active {
+						background: $color-mid;
+					}
+				}
+
+				// level 2
+				ul {
+					visibility: hidden;
+					position: absolute;
+					margin: 0 auto;
+					width: 200px;
+					text-align: center;
+					background: $color-light;
+					text-align: left;
+
+					li {
+						display: block;
+
+						&:hover ul {
+							visibility: visible;
+						}
+					}
+
+					// level 3
+					ul {
+						top: 0;
+						left: 100%;
+						visibility: hidden;
+					}
+				}
+			}
+		}
+	}
+}
