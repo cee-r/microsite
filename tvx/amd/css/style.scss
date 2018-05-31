@@ -359,6 +359,24 @@ header {
 // BANNER
 
 
+.carousel-inner > .carousel-item {
+  width: 100%;
+  height: 500px;
+
+  @media #{$break-lmedium} {
+    height: auto;
+  }
+
+  &.ie-object-fit {
+    background-size: cover;
+    background-position: center center;
+
+    img, a > img {
+      opacity: 0;
+    }
+  }
+}
+
 .carousel-inner > .carousel-item > a > img,
 .carousel-inner > .carousel-item > img {
   width: 100%;
