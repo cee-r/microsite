@@ -13,17 +13,13 @@ $zindex-tooltip:           1070 !default;
 
 // BREAK POINTS
 
-@mixin break-large {
-  @media screen and (min-width: 1600px) {
-    @content;
-  }
-}
+$break-xlarge: "screen and (min-width: 1920px)";
+$break-large: "screen and (min-width: 1200px)";
+$break-medium: "screen and (min-width: 960px)";
+$break-small: "screen and (min-width: 768px)";
+$break-xsmall: "screen and (min-width: 540px)";
 
-@mixin break-small {
-  @media only screen and (max-width: 1200px) {
-    @content;
-  }
-}
+
 
 // Browser Specific
 

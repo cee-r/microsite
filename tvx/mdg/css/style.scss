@@ -16,7 +16,6 @@ $color-mid: #f5f5f5;
 $color-light: #fff;
 
 @import '_mixins.scss';
-@import '_shell.scss';
 @import '_nav.scss';
 @import '_features.scss';
 
@@ -117,12 +116,20 @@ header {
     a {
       display: inline-block;
       background: $color-dark;
-      padding: 2em;
+      padding: 1em;
       position: absolute;
-      max-height: 162px;
+      max-height: 130px;
       transition: padding $shrink-fx;
 
 
+      @media #{$break-small} {
+        padding: 2em;
+        max-height: 160px;
+      }
+
+      @media #{$break-medium} {
+        max-height: 162px;
+      }
     }
     img {
       //max-height: 120px;
@@ -136,14 +143,49 @@ header {
       ul {
         list-style: none;
         text-align: right;
-        padding: 2em 0 0 0;
-        margin-bottom: 2em;
+        padding: 1.5em 1em;
+        margin-bottom: 0;
         transition: padding $shrink-fx, margin $shrink-fx;
 
+        @media #{$break-xsmall} {
+          padding: 1em 0 0 0;
+          margin-bottom: 1em;
+        }
+
+        @media #{$break-small} {
+          padding: 1.5em 0 0 0;
+          margin-bottom: 1.5em;
+        }
+
+
         li {
-          display: inline-block;
-          margin-left: 2em;
+          display: block;
+          margin: 1em 0 0 0;
           text-align: left;
+
+          @media #{$break-xsmall} {
+            margin: .5em 0 0 0;
+          }
+
+          @media #{$break-small} {
+            margin: 1em 0 0 0;
+          }
+
+          &.location-1 {
+            margin: 0;
+          }
+
+          @media #{$break-small} {
+            display: inline-block;
+
+            &.location-2 {
+              margin-left: 1em; 
+            }
+          }
+
+          @media #{$break-large} {
+            margin: .5em 0 .5em 2em;
+          }
         }
       }
 
@@ -154,7 +196,7 @@ header {
         text-decoration: none;
         font-weight: 400;
         font-family: $font-display;
-        font-size: 1.25em;
+        font-size: 1em;
         color: $color-accent;
         @extend .hvr-color;
         transition: font-size .3s ease-in-out;
@@ -163,9 +205,13 @@ header {
           color:$color-primary;
         }
 
+        @media #{$break-small} {
+          font-size: 1.25em;
+        }
+
         span {
           color: $color-dark;
-          display:block;
+          display:none;
           font-size: 14px;
           text-transform: uppercase;
           padding: .5em 0;
@@ -173,17 +219,21 @@ header {
           visibility: visible;
           position: relative;
           transition: opacity $shrink-fx, visibility $shrink-fx;
+
+          @media #{$break-xsmall} {
+            display: block;
+          }
         }
       }
   }
 
-  //Shrink
+  //Shrink lol
   &.shrink-on {
 
     .utilities {
       ul {
-        padding-top: 1em;
-        margin-bottom: 1em;
+        padding-top: .5em;
+        margin-bottom: .5em;
       }
 
       a {
@@ -333,6 +383,7 @@ nav {
     bottom: 80px;
   }
 
+  /*
   @include break-small {
     .carousel-caption {
       padding: 1em;
@@ -342,6 +393,7 @@ nav {
     }
 
   }
+  */
 
   // Carousel Fade Transition - Chris
 
@@ -472,9 +524,11 @@ nav {
         font-size: 1.75em;
         padding: 0 0 0 1em;
 
+        /*
         @include break-small {
           font-size: 1.5em;
         };
+        */
       }
     }
   }
