@@ -237,6 +237,22 @@ header {
       ul {
         padding-top: .5em;
         margin-bottom: .5em;
+
+        @media #{$break-540} {
+          min-height: 0;
+        }
+
+        @media #{$break-500} {
+          min-height: 0;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+
+        .location-2 {
+          @media #{$break-500} {
+            margin: .5em 0;
+          }
+        }
       }
 
       a {
@@ -254,12 +270,31 @@ header {
       a {
         padding: 1em;
 
+        @media #{$break-xsmall} {
+          padding: 1.3em;
+        }
+
+        @media #{$break-small} {
+          padding: 1.6em;
+        }
+
+        @media #{$break-990} {
+          padding: 1em;
+        }
+
         img {
           height: 67px;
+
+          @media #{$break-540} {
+            height: 60px;
+          }
         }
       }
     }
   }
+
+
+
 }
 
 // NAV
