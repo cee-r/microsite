@@ -61,7 +61,7 @@ $(document).ready(function(){
 	});
 
 
-
+/*
 	if ( ! Modernizr.objectfit ) {
 		$('#hero-banner .carousel-item').each(function () {
 			var $container = $(this),
@@ -72,7 +72,7 @@ $(document).ready(function(){
 					.addClass('ie-object-fit');
 			}
 		});
-	}
+	} */
 
 	// MISC
 
