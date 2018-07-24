@@ -441,7 +441,16 @@ nav {
   .carousel-inner > .carousel-item > img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 400px;
+    object-fit: cover;
+
+    @media #{$break-small} {
+      height: auto;
+    }
+
+    @media #{$break-large} {
+      height: 600px;
+    }
 
   }
 
@@ -466,13 +475,30 @@ nav {
     h1 {
       color: $color-light;
       @extend .text-shadow;
+      font-size: 2em;
+
+      @media #{$break-lmedium} {
+        font-size: 2.5em;
+      }
     }
 
     p {
       line-height: 1.5;
       @extend .text-shadow;
+      font-size: .9em;
 
-      a {text-shadow: none;}
+      @media #{$break-lmedium} {
+        font-size: 1em;
+      }
+
+      a {
+        text-shadow: none;
+        font-size:.9em;
+
+        @media #{$break-lmedium} {
+          font-size: 1em;
+        }
+      }
     }
   }
 
@@ -499,7 +525,11 @@ nav {
   }
 
   .carousel-indicators {
-    bottom: 80px;
+    bottom: 0;
+
+    @media #{$break-large} {
+      bottom: 80px;
+    }
   }
 
   /*
@@ -518,7 +548,15 @@ nav {
 
   &.carousel-fade {
     .carousel-inner {
-      height: 50vw;
+      height: 400px;
+
+      @media #{$break-small} {
+        height: 50vw;
+      }
+
+      @media #{$break-large} {
+        height: 600px;
+      }
 
       .carousel-item {
         opacity: 0 !important;
@@ -605,7 +643,11 @@ nav {
 
   position: relative;
   z-index: 2;
-  margin: -5em 0 3em 0 !important;
+  margin: 3em 0 3em 0 !important;
+
+  @media #{$break-large} {
+    margin-top: -5em !important;
+  }
 
   div {
     background: $color-accent;
