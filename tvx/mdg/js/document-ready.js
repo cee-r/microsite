@@ -43,12 +43,18 @@ $(document).ready(function(){
 		if (windowSize < 1024){
 			$("#primary-nav").addClass("mobile");
 			$("#primary-nav .has-child ul").hide();
+			$(".side-nav").hide().addClass("mobile");
+
 		} else {
 			$("#primary-nav").removeClass("mobile");
 			$("#primary-nav .has-child ul").show();
+			$(".side-nav").show();
 		}
 	}).trigger('resize');
 
+	$(".side-nav-btn").click(function(){
+		$(".side-nav.mobile").slideToggle();
+	});
 
 	$(".mobile-menu").click(function() {
 		$("#primary-nav").toggleClass("active-menu");

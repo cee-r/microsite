@@ -105,6 +105,14 @@ a:hover {color: $color-secondary; text-decoration: none;}
 
 .text-shadow {text-shadow: 0px 1px 2px rgba($color-dark, 1);}
 
+.homepage .content-area {
+  margin-top: 300px;
+
+  @media #{$break-lmedium} {
+    margin: 0 auto;
+  }
+}
+
 // HEADER
 
 header {
@@ -326,6 +334,11 @@ nav {
         text-align: left;
         margin-top: 3em;
 
+        @media #{$break-lmedium} {
+          text-align: center;
+          margin-top: 0;
+        }
+
         li:first-child a {
           border-top: 1px solid #000;
           border-top-color: rgba(#000, .3);
@@ -333,6 +346,10 @@ nav {
 
         li {
           display: block;
+
+          @media #{$break-lmedium} {
+            display: inline-block;
+          }
         }
 
         a {
@@ -437,6 +454,37 @@ nav {
 
 #hero-banner {
 
+  .carousel-inner {
+    overflow: visible;
+
+    @media #{$break-lmedium} {
+      overflow: hidden;
+    }
+
+    .carousel-item > .container {
+      position: relative;
+      left: 0;
+      top:0;
+      transform: none;
+      //max-width: 100%;
+      padding: 0;
+
+      @media screen and (max-width:1024px) {
+        max-width: 100% !important;
+      }
+
+      @media #{$break-lmedium} {
+        position: absolute;
+        left: 50%;
+        right: auto;
+        top: 20%;
+        bottom:auto;
+        @include transform(translate(-50%, 0));
+      }
+    }
+
+  }
+
   .carousel-inner > .carousel-item > a > img,
   .carousel-inner > .carousel-item > img {
     display: block;
@@ -454,23 +502,21 @@ nav {
 
   }
 
-  .carousel-item > .container {
-    position: absolute;
-    left: 50%;
-    right: auto;
-    top: 20%;
-    bottom:auto;
-    @include transform(translate(-50%, 0));
-  }
+
+
 
   .carousel-caption {
     background: rgba($color-secondary, .9);
-    width: 40%;
+    width: 100%;
     right: auto;
     left: auto;
     bottom: 0;
     padding: 2em;
     position: relative;
+
+    @media #{$break-lmedium} {
+      width: 40%;
+    }
 
     h1 {
       color: $color-light;
@@ -499,6 +545,16 @@ nav {
           font-size: 1em;
         }
       }
+    }
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: -4em;
+
+    @media #{$break-lmedium} {
+      position: relative;
+      top: auto;
     }
   }
 
@@ -640,10 +696,16 @@ nav {
 // CALLOUTS
 
 .callouts {
-
   position: relative;
   z-index: 2;
   margin: 3em 0 3em 0 !important;
+
+  .col {
+    @media screen and (max-width:990px) {
+      flex-basis: 100%;
+    }
+  }
+
 
   @media #{$break-large} {
     margin-top: -5em !important;
@@ -762,8 +824,15 @@ nav {
     }
 
     .feature-caption {
-      width: 40%;
-      position: absolute;
+      width: 100%;
+      position: relative;
+      margin:  4em 0;
+
+      @media #{$break-lmedium} {
+        width: 40%;
+        position: absolute;
+        margin: 0;
+      }
 
 
       h1, p {
@@ -786,6 +855,13 @@ footer {
   background: $color-dark;
   border-top: 3px solid $color-tertiary;
 
+  .col {
+    @media screen and (max-width: 768px) {
+      width: 100% !important;
+      flex-basis:100% !important;
+      max-width: 100% !important;
+    }
+  }
 
   #back-to-top {
     background: $color-accent;
@@ -800,6 +876,10 @@ footer {
 
     a {
       display: block;
+
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
     }
 
     img {
@@ -837,6 +917,10 @@ footer {
     margin-top: 5em;
     padding: 0;
     text-align: right;
+
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
 
     li {
       display: inline-block;
@@ -897,7 +981,7 @@ footer {
     &:before {
       content: "";
       background-image: url(../img/pagetitle.jpg);
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       opacity: 0.5;
@@ -930,6 +1014,18 @@ footer {
     img.fig.float-right {
       margin: 0 0 1em 2em;
       max-width: 350px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .col, article {
+        max-width: 100%;
+        flex: 0 0 100%;
+        width: 100%;
+      }
+
+      article {
+        margin-top: 1em;
+      }
     }
   }
 
@@ -969,6 +1065,32 @@ footer {
           };
         }
       }
+    }
+  }
+
+  .side-nav-btn {
+    display: block;
+    background: $color-accent;
+    padding: .5em 1em;
+    text-decoration: none;
+    color: $color-light !important;
+    font-weight: bold;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-dark;
+    }
+
+    .fa {
+      position: absolute;
+      display: block;
+      right: .5em;
+      top:.75em;
+    }
+
+    @media #{$break-lmedium} {
+      display: none;
     }
   }
 
